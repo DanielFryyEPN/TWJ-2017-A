@@ -48,3 +48,11 @@ El nombre del contenedor
 -e le dice al docker que es una variable de entorno
 La clave del usuario **creado**.
 ### -p 3306:3306
+##Postgresql
+```
+>> docker run --name postgresdaniel -e POSTGRES_PASSWORD=123456 -e POSTGRES_USER=daniel -e POSTGRESDB=politecnica -p 5432:5432 -d postgres
+```
+##Mongo
+```
+>> docker run --name danielmongo -p 27017:27017 -d mongo
+```
