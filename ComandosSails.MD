@@ -13,3 +13,7 @@ El comando **lift** now ayuda a levantar un proyecto de **sails**
 ```
 - Debe estar **dentro de la carpeta** del proyecto de sails
 - Sails nos pregunta algunas opciones, vamos a escoger por defecto la **Opcion 2**
+##sails generate api
+```
+>> sails generate api
+```
