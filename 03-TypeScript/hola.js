@@ -2,7 +2,5 @@
  * Created by USRDEL on 16/5/17.
  */
 console.log("hola mundo");
-let holaMundo = `Que tal
-mundo cruel`;
-
+var holaMundo = "Que tal\nmundo cruel";
 console.log(holaMundo);
