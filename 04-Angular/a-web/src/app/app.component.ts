@@ -7,14 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   usuario: UsuarioInt = {
-    "nombre": "Daniel",
-    "apellido": "Freire"
+    nombre: "",
+    apellido: "Freire"
   };
 
+  parrafo:string = "Hola";
+
   constructor() {
+    this.usuario.nombre = "Daniel";
     console.log("constructor");
     this.holaMundo();
    console.log(this.saludar(this.usuario.nombre, this.usuario.apellido));
+    setTimeout(() => {
+      this.usuario.nombre = "Enrique"
+    }, 1000);
   }
 
   holaMundo() {
