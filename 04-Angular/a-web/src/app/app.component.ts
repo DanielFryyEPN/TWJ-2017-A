@@ -12,6 +12,7 @@ export class AppComponent {
   };
 
   parrafo:string = "Hola";
+  background:string = "blue";
 
   constructor() {
     this.usuario.nombre = "Daniel";
