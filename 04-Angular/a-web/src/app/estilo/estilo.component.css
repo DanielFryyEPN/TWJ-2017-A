@@ -3,6 +3,9 @@ p {
   border-style: solid;
   border-color: #0c8da0;
 }
+p:hover {
+  border-color: blue;
+}
 h1 {
   color: white;
   background-color: #000;
