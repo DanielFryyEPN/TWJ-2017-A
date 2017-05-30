@@ -1,4 +1,36 @@
 <div class="container">
+
+  <h1>Bienvenidos</h1>
+  <h2>Usuarios conectados</h2>
+
+  <div class="row">
+    <div class="col-sm-4" *ngFor = "let usuario of arregloUsuario">
+      <div class="card" style="width: 20rem;">
+        <div class="card-block">
+          <h4 class="card-title">{{usuario.nombre}}</h4>
+          <p class="card-text">{{usuario.nombre}} {{usuario.apellido}}.</p>
+          <a href="#" class="btn btn-primary">Ir a perfil</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+
+  <!--<input placeholder="Ingrese texto" type="text" [value] = "nombre" #nombreEtiqueta>
+
+  <input placeholder="Ingrese texto" type="text" [(ngModel)] = "nombre">
+
+  {{nombre}}
+
+  <img [src]="nombre" alt="">
+  <br>
+  <button class="btn btn-primary" (click)="cambiarNombre()">Cambiar valor</button>
+
+  <button (blur) = "cambiarOtroNombre()">Clickeame</button>
+  <br>
+
+  <h1 (click)="cambiarNombreInput(nombreEtiqueta)">Lenin a Rafico</h1>
+
   <div class="row">
     <div style="background-color: red" class="col-sm-6">rojo</div>
     <div style="background-color: red" class="col-sm-6">rojo</div>
@@ -22,7 +54,7 @@
   </div>
   <div style="background-color: mediumpurple" class="row">
     <div class="container">
-      <span class="bd-booticon outline">B</span>
+      <p><span class="bd-booticon outline">B</span></p>
       <p>Bootstrap is the most popular HTML, CSS, and JS framework in the world for building responsive, mobile-first projects on the web.</p>
       <p><button href="">Download Bootstrap</button></p>
       <p>Currently v4.0.0-alpha.6</p>
@@ -54,6 +86,6 @@
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre>
       </figure>
     </div>
-  </div>
+  </div>-->
 </div>
 
