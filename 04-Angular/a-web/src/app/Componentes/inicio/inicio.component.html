@@ -4,16 +4,34 @@
   <h2>Usuarios conectados</h2>
 
   <div class="row">
-    <div class="col-sm-4" *ngFor = "let usuario of arregloUsuario">
-      <div class="card" style="width: 20rem;">
-        <div class="card-block">
-          <h4 class="card-title">{{usuario.nombre}}</h4>
-          <p class="card-text">{{usuario.nombre}} {{usuario.apellido}}.</p>
-          <a href="#" class="btn btn-primary">Ir a perfil</a>
+    <div  *ngFor = "let usuario of arregloUsuario">
+      <div class="col-sm-4" *ngIf="usuario.conectado">
+        <div class="card" style="width: 20rem;">
+          <div class="card-block">
+            <h4 class="card-title">{{usuario.nombre}} - {{usuario.conectado}}</h4>
+            <p class="card-text">{{usuario.nombre}} {{usuario.apellido}}.</p>
+            <a href="#" class="btn btn-primary">Ir a perfil</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <h2>Planetas de Star Wars</h2>
+  <br>
+  <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
+
+  <div *ngFor = "let planeta of planetas">
+    <li>{{planeta.name}}</li>
+  </div>
+
+  <p *ngIf="true">TRUE</p>
+  <p *ngIf="false">FALSE</p>
+  <p *ngIf="0">CERO</p>
+  <p *ngIf="undefined">UNDEFINED</p>
+  <p *ngIf="null">NULL</p>
+  <p *ngIf="nombre">NOMBRE</p>
+  <p *ngIf="conectado">hola</p>
   <!--
 
   <!--<input placeholder="Ingrese texto" type="text" [value] = "nombre" #nombreEtiqueta>

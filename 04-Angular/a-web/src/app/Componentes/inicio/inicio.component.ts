@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Http} from "@angular/http";
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-inicio',
@@ -8,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class InicioComponent implements OnInit {
 
   nombre: string = "Daniel";
+  planetas = [];
   //cmmand + a y luego command + alt + l
   arregloUsuario = [{
       nombre: "Daniel",
@@ -23,11 +26,20 @@ export class InicioComponent implements OnInit {
       nombre: "Abdala",
       apellido: "Bucaram",
       conectado: false
+    },
+    {
+      nombre: "Juan Jose",
+      apellido: "Flores",
+      conectado: true
     }];
 
-  constructor() { }
+  constructor(private _http:Http) {
+    //Inicia la clase
+    //PERO EL COMPONENTE NO ESTA LISTO!!!
+  }
 
   ngOnInit() {
+    //Esta listo el componente
   }
 
   cambiarNombre(): void {
@@ -44,4 +56,29 @@ export class InicioComponent implements OnInit {
     console.log(nombreEtiqueta.placeholder);
     this.nombre = nombreEtiqueta.value;
   }
+
+  cargarPlanetas() {
+    this._http
+      .get("http://swapi.co/api/planets")
+      //.map(response => response.json())
+      .subscribe(
+        (reponse) => {
+          console.log("Response: ", reponse);
+          console.log(reponse.json());
+          let repuesta = reponse.json();
+          console.log(repuesta.next);
+          this.planetas = repuesta.results;
+        },
+        (error) => {
+          console.log("Error: ", error);
+        },
+        () => {
+          console.log("Finally");
+        }
+      )
+  }
+}
+
+interface PlanetaStarWars {
+  name:string;
 }

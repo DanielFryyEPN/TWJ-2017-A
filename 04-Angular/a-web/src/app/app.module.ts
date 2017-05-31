@@ -18,7 +18,10 @@ import { InicioComponent } from './Componentes/inicio/inicio.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    //http
+
+  ],
   bootstrap: [InicioComponent]
 })
 export class AppModule { }
