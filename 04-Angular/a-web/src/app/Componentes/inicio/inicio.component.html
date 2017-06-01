@@ -21,12 +21,15 @@
   <br>
   <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
 
-  <div *ngFor = "let planeta of planetas">
-    <li>{{planeta.name}}</li>
-    <li>{{planeta.residents}}</li>
+  <div class="row">
+    <div *ngFor = "let planeta of planetas">
+      <div class="col-sm-6">
+        {{planeta.name}}
+      </div>
+    </div>
   </div>
 
-  <p *ngIf="true">TRUE</p>
+  <!--<p *ngIf="true">TRUE</p>
   <p *ngIf="false">FALSE</p>
   <p *ngIf="0">CERO</p>
   <p *ngIf="undefined">UNDEFINED</p>
