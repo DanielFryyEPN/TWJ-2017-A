@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 export class InicioComponent implements OnInit {
 
   nombre: string = "Daniel";
-  planetas = [];
+  planetas: PlanetaStarWars;
   //cmmand + a y luego command + alt + l
   arregloUsuario = [{
       nombre: "Daniel",
@@ -75,10 +75,23 @@ export class InicioComponent implements OnInit {
         () => {
           console.log("Finally");
         }
-      )
+      );
   }
 }
 
 interface PlanetaStarWars {
-  name:string;
+  name: string;
+  rotation_period: number;
+  orbital_period: number;
+  diameter: number;
+  climate: string;
+  gravity: string;
+  terrain: string;
+  surface_water: number;
+  population: number;
+  residents: string[];
+  films: string[];
+  created: string;
+  edited: string;
+  url: string;
 }
