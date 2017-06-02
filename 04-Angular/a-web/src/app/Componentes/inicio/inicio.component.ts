@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Http} from "@angular/http";
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -9,31 +9,43 @@ import 'rxjs/add/operator/map';
 })
 export class InicioComponent implements OnInit {
 
-  nombre: string = "Daniel";
+  nombre = 'Daniel';
   planetas: PlanetaStarWars;
-  //cmmand + a y luego command + alt + l
+  // cmmand + a y luego command + alt + l
+  arregloImagenes = [
+    'https://vignette1.wikia.nocookie.net/starwars/images/4/4a/Alderaan.jpg',
+    'http://vignette4.wikia.nocookie.net/starwars/images/a/a0/Eaw_Yavin4.jpg',
+    'https://vignette4.wikia.nocookie.net/starwars/images/1/1d/Hoth_SWCT.png',
+    'https://vignette2.wikia.nocookie.net/starwars/images/4/48/Dagobah_ep3.jpg',
+    'https://vignette3.wikia.nocookie.net/starwars/images/2/2c/Bespin_EotECR.png',
+    'https://vignette3.wikia.nocookie.net/starwars/images/8/83/EndorSpace.jpg',
+    'https://vignette2.wikia.nocookie.net/starwars/images/3/3c/Naboo.png',
+    'http://vignette1.wikia.nocookie.net/starwars/images/1/16/Coruscant-EotE.jpg',
+    'https://vignette4.wikia.nocookie.net/starwars/images/a/a9/Eaw_Kamino.jpg',
+    'https://vignette2.wikia.nocookie.net/starwars/images/6/6d/Geonosis_AotC.png'
+  ];
   arregloUsuario = [{
-      nombre: "Daniel",
-      apellido: "Freire",
+      nombre: 'Daniel',
+      apellido: 'Freire',
       conectado: true
     },
     {
-      nombre: "Mashi",
-      apellido: "Correa",
+      nombre: 'Mashi',
+      apellido: 'Correa',
       conectado: true
     },
     {
-      nombre: "Abdala",
-      apellido: "Bucaram",
+      nombre: 'Abdala',
+      apellido: 'Bucaram',
       conectado: false
     },
     {
-      nombre: "Juan Jose",
-      apellido: "Flores",
+      nombre: 'Juan Jose',
+      apellido: 'Flores',
       conectado: true
     }];
 
-  constructor(private _http:Http) {
+  constructor(private _http: Http) {
     //Inicia la clase
     //PERO EL COMPONENTE NO ESTA LISTO!!!
   }
@@ -43,11 +55,11 @@ export class InicioComponent implements OnInit {
   }
 
   cambiarNombre(): void {
-    this.nombre = "Rafico a Lenin";
+    this.nombre = 'Rafico a Lenin';
   }
 
   cambiarOtroNombre(): void {
-    this.nombre = "Lenin a Rafico";
+    this.nombre = 'Lenin a Rafico';
   }
 
   cambiarNombreInput(nombreEtiqueta) {
@@ -59,21 +71,21 @@ export class InicioComponent implements OnInit {
 
   cargarPlanetas() {
     this._http
-      .get("http://swapi.co/api/planets")
-      //.map(response => response.json())
+      .get('http://swapi.co/api/planets')
+      // .map(response => response.json())
       .subscribe(
         (reponse) => {
-          console.log("Response: ", reponse);
+          console.log('Response: ', reponse);
           console.log(reponse.json());
           let repuesta = reponse.json();
           console.log(repuesta.next);
           this.planetas = repuesta.results;
         },
         (error) => {
-          console.log("Error: ", error);
+          console.log('Error: ', error);
         },
         () => {
-          console.log("Finally");
+          console.log('Finally');
         }
       );
   }

@@ -22,10 +22,21 @@
   <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
 
   <div class="row">
-    <div *ngFor = "let planeta of planetas">
-      <div class="col-sm-6">
-        {{planeta.name}}
-      </div>
+    <div class="col-sm-6 table-bordered" *ngFor = "let planeta of planetas; let i = index">
+      <figure class="figure">
+        <img style="width: 400px" src="{{arregloImagenes[i]}}" class="figure-img img-fluid rounded" alt="{{planeta.name}}">
+        <figcaption class="figure-caption">
+          <p><b>Nombre:</b> {{planeta.name}}</p>
+          <p><b>Periodo de rotacion:</b> {{planeta.rotation_period}}</p>
+          <p><b>Periodo orbital:</b> {{planeta.orbital_period}}</p>
+          <p><b>Diametro:</b> {{planeta.diameter}}</p>
+          <p><b>Clima:</b> {{planeta.diameter}}</p>
+          <p><b>Gravedad:</b> {{planeta.gravity}}</p>
+          <p><b>Terreno:</b> {{planeta.terrain}}</p>
+          <p><b>Superficie de agua:</b> {{planeta.surface_water}}</p>
+          <p><b>Poblacion:</b> {{planeta.population}}</p>
+        </figcaption>
+      </figure>
     </div>
   </div>
 
