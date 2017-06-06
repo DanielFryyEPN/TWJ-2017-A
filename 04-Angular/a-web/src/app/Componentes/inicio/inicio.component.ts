@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
+import {PlanetaStarWars} from "../../Interfaces/PlanetaStarWars";
 
 @Component({
   selector: 'app-inicio',
@@ -10,7 +11,7 @@ import 'rxjs/add/operator/map';
 export class InicioComponent implements OnInit {
 
   nombre = 'Daniel';
-  planetas: PlanetaStarWars;
+  planetas: PlanetaStarWars[] = [];
   // cmmand + a y luego command + alt + l
   arregloImagenes = [
     'https://vignette1.wikia.nocookie.net/starwars/images/4/4a/Alderaan.jpg',
@@ -80,6 +81,10 @@ export class InicioComponent implements OnInit {
           let repuesta = reponse.json();
           console.log(repuesta.next);
           this.planetas = repuesta.results;
+          this.planetas = this.planetas.map((planeta) => {
+            planeta.imagenURL = "assets/Imagenes/" + planeta.name + ".jpg";
+            return planeta;
+          });
         },
         (error) => {
           console.log('Error: ', error);
@@ -90,8 +95,9 @@ export class InicioComponent implements OnInit {
       );
   }
 }
-
+/*
 interface PlanetaStarWars {
+  imagenURL?: string;
   name: string;
   rotation_period: number;
   orbital_period: number;
@@ -107,3 +113,4 @@ interface PlanetaStarWars {
   edited: string;
   url: string;
 }
+*/

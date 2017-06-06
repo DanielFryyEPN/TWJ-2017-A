@@ -1,7 +1,15 @@
 <div class="container">
 
   <h1>Bienvenidos</h1>
-  <h2>Usuarios conectados</h2>
+
+  <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let planeta of planetas; let i = index">
+      <app-planeta-star-wars [planeta]="planeta"></app-planeta-star-wars>
+    </div>
+  </div>
+  <!--<div class="row">
+  <!--<h2>Usuarios conectados</h2>
 
   <div class="row">
     <div  *ngFor = "let usuario of arregloUsuario">
@@ -19,13 +27,11 @@
 
   <h2>Planetas de Star Wars</h2>
   <br>
-  <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
-
-  <div class="row">
     <div class="col-sm-6 table-bordered" *ngFor = "let planeta of planetas; let i = index">
       <figure class="figure">
         <img style="width: 400px" src="{{arregloImagenes[i]}}" class="figure-img img-fluid rounded" alt="{{planeta.name}}">
         <figcaption class="figure-caption">
+          <!--<img src="{{planeta.imagenURL}}" alt="">
           <p><b>Nombre:</b> {{planeta.name}}</p>
           <p><b>Periodo de rotacion:</b> {{planeta.rotation_period}}</p>
           <p><b>Periodo orbital:</b> {{planeta.orbital_period}}</p>
@@ -35,12 +41,15 @@
           <p><b>Terreno:</b> {{planeta.terrain}}</p>
           <p><b>Superficie de agua:</b> {{planeta.surface_water}}</p>
           <p><b>Poblacion:</b> {{planeta.population}}</p>
+          <ul>
+            <li *ngFor="let resident of planetas.residents">{{resident}}</li>
+          </ul>
         </figcaption>
       </figure>
     </div>
   </div>
 
-  <!--<p *ngIf="true">TRUE</p>
+  <p *ngIf="true">TRUE</p>
   <p *ngIf="false">FALSE</p>
   <p *ngIf="0">CERO</p>
   <p *ngIf="undefined">UNDEFINED</p>
