@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {PlanetaStarWars} from "../../Interfaces/PlanetaStarWars";
+import {UsuarioClass} from "../../Clases/UsuarioClass";
 
 @Component({
   selector: 'app-inicio',
@@ -11,6 +12,9 @@ import {PlanetaStarWars} from "../../Interfaces/PlanetaStarWars";
 export class InicioComponent implements OnInit {
 
   nombre = 'Daniel';
+
+  nuevoUsuario: UsuarioClass = new UsuarioClass("");
+
   planetas: PlanetaStarWars[] = [];
   // cmmand + a y luego command + alt + l
   arregloImagenes = [
@@ -53,6 +57,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     //Esta listo el componente
+    console.log('Nuevo usuario: ', this.nuevoUsuario);
   }
 
   cambiarNombre(): void {
@@ -85,6 +90,27 @@ export class InicioComponent implements OnInit {
             planeta.imagenURL = "assets/Imagenes/" + planeta.name + ".jpg";
             return planeta;
           });
+        },
+        (error) => {
+          console.log('Error: ', error);
+        },
+        () => {
+          console.log('Finally');
+        }
+      );
+  }
+
+  crearUsuario() {
+    console.log("entro a crear usuario");
+    let usuario: UsuarioClass = {
+      nombre: this.nuevoUsuario.nombre
+    };
+    this._http
+      .post("http://localhost:1337/Usuario", usuario)
+      .subscribe(
+        (reponse) => {
+          let repuesta = reponse.json();
+          console.log('Respuesta json: ',repuesta);
         },
         (error) => {
           console.log('Error: ', error);
