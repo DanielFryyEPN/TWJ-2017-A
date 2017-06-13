@@ -40,13 +40,13 @@ module.exports.connections = {
    * Run: npm install sails-mysql                                             *
    *                                                                          *
    ***************************************************************************/
-  conexionMysqlDocker: {
+  /*conexionMysqlDocker: {
     adapter: 'sails-mysql',
     host: 'localhost',
     user: 'daniel', //optional
     password: '123456', //optional
     database: 'daniel' //optional
-  },
+  },*/
 
   /***************************************************************************
    *                                                                          *
@@ -56,11 +56,11 @@ module.exports.connections = {
    * Run: npm install sails-mongo                                             *
    *                                                                          *
    ***************************************************************************/
-  conexionMongo: {
+  /*conexionMongo: {
     adapter: 'sails-mongo',
     host: 'localhost',
     port: 27017,
-  },
+  },*/
 
   /***************************************************************************
   *                                                                          *
@@ -71,13 +71,13 @@ module.exports.connections = {
   *                                                                          *
   *                                                                          *
   ***************************************************************************/
-  conexionPostgresqlDocker: {
+  /*conexionPostgresqlDocker: {
     adapter: 'sails-postgresql',
     host: 'localhost',
     user: 'daniel', // optional
     password: '123456', // optional
     database: 'poli' //optional
-  }
+  }*/
 
 
   /***************************************************************************

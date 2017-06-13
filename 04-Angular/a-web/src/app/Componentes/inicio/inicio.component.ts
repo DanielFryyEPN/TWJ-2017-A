@@ -125,9 +125,9 @@ export class InicioComponent implements OnInit {
     this._http
       .post("http://localhost:1337/Usuario", this.nuevoUsuario)
       .subscribe(
-        (reponse) => {
-          let repuesta = reponse.json();
-          console.log('Respuesta json: ',repuesta);
+        (response) => {
+          this.usuarios.push(response.json());
+          console.log('Respuesta json: ',response.json());
         },
         (error) => {
           console.log('Error: ', error);
@@ -140,6 +140,21 @@ export class InicioComponent implements OnInit {
 
   eliminarUsuario(usuario: UsuarioClass) {
     let indice: number = this.usuarios.indexOf(usuario);
+    console.log(indice);
+    this._http
+      .delete("http://localhost:1337/Usuario", this.nuevoUsuario)
+      .subscribe(
+        (response) => {
+          this.usuarios.splice(indice, 1);
+          console.log('Respuesta json: ',response.json());
+        },
+        (error) => {
+          console.log('Error: ', error);
+        },
+        () => {
+          console.log('Finally');
+        }
+      );
   }
 }
 /*
