@@ -146,7 +146,7 @@ export class InicioComponent implements OnInit {
       .subscribe(
         (response) => {
           this.usuarios.splice(indice, 1);
-          console.log('Respuesta json: ',response.json());
+          console.log('Respuesta json: ', response.json());
         },
         (error) => {
           console.log('Error: ', error);
