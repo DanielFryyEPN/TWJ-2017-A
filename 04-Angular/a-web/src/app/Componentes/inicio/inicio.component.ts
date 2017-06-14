@@ -139,14 +139,12 @@ export class InicioComponent implements OnInit {
   }
 
   eliminarUsuario(usuario: UsuarioClass) {
-    let indice: number = this.usuarios.indexOf(usuario);
-    console.log(indice);
+    const indice: number = this.usuarios.indexOf(usuario);
     this._http
-      .delete('http://localhost:1337/Usuario', indice)
+      .delete('http://localhost:1337/Usuario?id=' + usuario.id)
       .subscribe(
         (response) => {
           this.usuarios.splice(indice, 1);
-          console.log('Respuesta json: ',response.json());
         },
         (error) => {
           console.log('Error: ', error);

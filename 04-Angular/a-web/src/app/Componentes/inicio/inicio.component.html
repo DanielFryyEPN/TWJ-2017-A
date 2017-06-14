@@ -28,8 +28,10 @@
   <h2>Planetas</h2>
 
   <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
+  <br><br>
   <div class="row">
     <div class="col-md-4" *ngFor="let planeta of planetas; let i = index">
+      <img src="{{arregloImagenes[i]}}" class="figure-img img-fluid rounded" alt="">
       <app-planeta-star-wars [planeta]="planeta"></app-planeta-star-wars>
     </div>
   </div>

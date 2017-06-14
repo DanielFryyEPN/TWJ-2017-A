@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PlanetaStarWars} from "../../Interfaces/PlanetaStarWars";
+import {PlanetaStarWars} from '../../Interfaces/PlanetaStarWars';
 
 @Component({
   selector: 'app-planeta-star-wars',
