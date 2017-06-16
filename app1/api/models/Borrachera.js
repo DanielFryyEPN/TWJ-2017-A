@@ -8,10 +8,6 @@
 module.exports = {
   connection: 'localDiskDb',
   attributes: {
-    id: {
-      type: 'integer',
-      unique: true
-    },
     motivo: {
       type: 'string'
     },
@@ -20,12 +16,6 @@ module.exports = {
     },
     longitudDondeEmpezo: {
       type: 'integer'
-    },
-    createdAt: {
-      type: 'date'
-    },
-    updatedAt: {
-      type: 'date'
     }
   }
 };

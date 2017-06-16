@@ -1,14 +1,46 @@
 <div class="container">
   <h3>Borracheras</h3>
-  <!--<div class="row">
-    <div class="col-sm-6">
+  <div class="row">
+    <div class="col-sm-4">
       <div class="form-group">
-        <pre>{{borrachera | json}}</pre>
+        <pre>{{nuevaBorrachera | json}}</pre>
         <label class="col-form-label">Motivo</label>
-        <input class="form-control" placeholder = "Ingrese nuevo motivo" [(ngModel)] = "borrachera.motivo" type="text">
+        <input class="form-control" placeholder = "Ingrese nuevo motivo" [(ngModel)] = "nuevaBorrachera.motivo" type="text">
       </div>
-
-      <button class="btn btn-success" (click)="crearUsuario()">Crear Borrachera</button>
+      <!--<button class="btn btn-success" (click)="crearUsuario()">Crear Borrachera</button>-->
     </div>
-  </div>-->
+    <div class="col-sm-4">
+      <div class="form-group">
+        <pre>{{nuevaBorrachera | json}}</pre>
+        <label class="col-form-label">Latitud donde empezó</label>
+        <input class="form-control" placeholder = "Ingrese nueva latitud" [(ngModel)] = "nuevaBorrachera.latitudDondeEmpezo" type="text">
+      </div>
+      <!--<button class="btn btn-success" (click)="crearUsuario()">Crear Borrachera</button>-->
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <pre>{{nuevaBorrachera | json}}</pre>
+        <label class="col-form-label">Longitud donde empezó</label>
+        <input class="form-control" placeholder = "Ingrese nueva longitud" [(ngModel)] = "nuevaBorrachera.longitudDondeEmpezo" type="text">
+      </div>
+      <!---->
+    </div>
+    <button class="btn btn-success" (click)="crearBorrachera()">Crear Borrachera</button>
+  </div>
+
+  <h3>Borracheras:</h3>
+
+  <div class="row">
+    <div  *ngFor="let borrachera of borracheras">
+      <div class="col-sm-4">
+        <div class="card" style="width: 20rem;">
+          <div class="card-block">
+            <p><strong>Motivo:</strong> {{borrachera.motivo}}</p>
+            <p><strong>Latitud donde empezó:</strong> {{borrachera.latitudDondeEmpezo}}</p>
+            <p><strong>Longitud donde empezó:</strong> {{borrachera.longitudDondeEmpezo}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
