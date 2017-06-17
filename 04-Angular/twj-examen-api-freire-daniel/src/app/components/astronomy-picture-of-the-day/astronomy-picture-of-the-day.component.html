@@ -1,3 +1,30 @@
-<p>
-  astronomy-picture-of-the-day works!
-</p>
+<div class="container">
+  <div style="background-color: rgba(7,18,255,0.59)" class="row table-bordered">
+    <h1>Astronomy Picture of the Day</h1>
+  </div>
+  <div class="row">
+    <div style="background-color: rgba(33,28,255,0.29)" class="col-sm-4 table-bordered">
+      <div class="form-group">
+        <label class="col-form-label">Fecha</label>
+        <input class="form-control" placeholder = "Ingrese nueva fecha" [(ngModel)] = "newPicture.date" type="text">
+      </div>
+      <button class="btn btn-success" (click)="consultarImagen(newPicture)">Obtener Imagen</button>
+    </div>
+    <div class="col-sm-8">
+      <div class="row table-bordered justify-content-center">
+        <img src="{{newPicture.url}}" class="figure-img img-fluid rounded" alt="{{newPicture.media_type}}">
+      </div>
+      <div style="background-color: rgba(255,140,103,0.18)" class="row table-bordered">
+        <figure class="figure">
+          <figcaption class="figure-caption">
+            <p><b>Titulo:</b> {{newPicture.title}}</p>
+            <p><b>Fecha:</b> {{newPicture.date}}</p>
+            <p><b>Descripcion:</b> {{newPicture.explanation}}</p>
+            <p><b>Version del servicio:</b> {{newPicture.service_version}}</p>
+            <p><b>Copyright:</b> {{newPicture.copyright}}</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>
