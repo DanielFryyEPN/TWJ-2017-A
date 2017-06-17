@@ -2,15 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { AstronomyPictureOfTheDayComponent } from './components/astronomy-picture-of-the-day/astronomy-picture-of-the-day.component';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AstronomyPictureOfTheDayComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AstronomyPictureOfTheDayComponent]
 })
 export class AppModule { }
