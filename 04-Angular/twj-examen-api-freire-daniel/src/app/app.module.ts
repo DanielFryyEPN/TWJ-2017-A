@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { AstronomyPictureOfTheDayComponent } from './components/astronomy-picture-of-the-day/astronomy-picture-of-the-day.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ContainerComponent } from './components/container/container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AstronomyPictureOfTheDayComponent
+    AstronomyPictureOfTheDayComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -17,6 +19,6 @@ import { HttpModule } from '@angular/http';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AstronomyPictureOfTheDayComponent]
+  bootstrap: [ContainerComponent]
 })
 export class AppModule { }
