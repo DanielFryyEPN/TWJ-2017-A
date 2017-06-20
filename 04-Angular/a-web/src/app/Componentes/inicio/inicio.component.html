@@ -18,19 +18,20 @@
 
   <div class="row">
     <div class="col-sm-6" *ngFor="let usuario of usuarios">
-      <div *ngIf="!usuario.editar">
+      <app-usuario [usuarioLocal]="usuario"></app-usuario>
+      <div class="animated rollIn" *ngIf="!usuario.editar">
         <h3>{{usuario.nombre}}</h3>
-        <button class="btn btn-warning" (click)="usuario.editar = !usuario.editar">Editar Usuario</button>
+        <button class="btn btn-warning" (click)="usuarioLocal.editar = !usuarioLocal.editar">Editar Usuario</button>
       </div>
-      <div *ngIf="usuario.editar">
+      <div class="animated bounceIn" *ngIf="usuario.editar">
         <h4>Actualizar</h4>
         <div class="form-group">
           <label class="col-form-label">Nombre Usuario</label>
-          <input class="form-control" placeholder = "Ingrese nuevo nombre" [(ngModel)] = "usuario.nombre" type="text">
+          <input class="form-control" placeholder = "Ingrese nuevo nombre" #usuarioNombre type="text">
         </div>
-        <button class="btn btn-primary" (click)="actualizarUsuario(usuario)">Actualizar Usuario</button>
+        <button class="btn btn-primary" (click)="actualizarUsuario(usuario, usuarioNombre.value)">Actualizar Usuario</button>
         <button class="btn btn-danger" (click)="eliminarUsuario(usuario)">Eliminar Usuario</button>
-        <button class="btn btn-secondary" (click)="usuario.editar = !usuario.editar">Cancelar</button>
+        <button class="btn btn-secondary" (click)="usuarioLocal.editar = !usuarioLocal.editar">Cancelar</button>
       </div>
     </div>
   </div>

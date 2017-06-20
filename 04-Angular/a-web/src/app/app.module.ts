@@ -12,6 +12,7 @@ import { OrbitalPeriodComponent } from './Componentes/orbital-period/orbital-per
 import { DiameterComponent } from './Componentes/diameter/diameter.component';
 import { ClimateComponent } from './Componentes/climate/climate.component';
 import { GravityComponent } from './Componentes/gravity/gravity.component';
+import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GravityComponent } from './Componentes/gravity/gravity.component';
     OrbitalPeriodComponent,
     DiameterComponent,
     ClimateComponent,
-    GravityComponent
+    GravityComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,

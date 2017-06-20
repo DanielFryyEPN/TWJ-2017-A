@@ -140,48 +140,6 @@ export class InicioComponent implements OnInit {
         }
       );
   }
-
-  eliminarUsuario(usuario: UsuarioClass) {
-    const indice: number = this.usuarios.indexOf(usuario);
-    this._http
-      .delete('http://localhost:1337/Usuario?id=' + usuario.id)
-      .subscribe(
-        (response) => {
-          this.usuarios.splice(indice, 1);
-        },
-        (error) => {
-          console.log('Error: ', error);
-        },
-        () => {
-          console.log('Finally');
-        }
-      );
-  }
-
-  actualizarUsuario(usuario: UsuarioClass) {
-    const actualizacion = {
-      nombre: usuario.nombre
-    };
-    const indice: number = this.usuarios.indexOf(usuario);
-    this._http
-      .put('http://localhost:1337/Usuario/' + usuario.id, actualizacion)
-      .map((res) => {
-        return res.json();
-      }) // snippet -> template de codigo para poder reutilizarlo
-      .subscribe(
-        (res) => {
-          // El servidor nos dice que se actualizo
-          console.log('El usuario se actualizo', res);
-        },
-        (err) => {
-          // Hubo algun problema
-          console.log('Hubo un error: ', err);
-        },
-        () => {
-          console.log('Finally');
-        }
-      );
-  }
 }
 /*
 interface PlanetaStarWars {
