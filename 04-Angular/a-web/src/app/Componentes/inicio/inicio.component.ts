@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {PlanetaStarWars} from "../../Interfaces/PlanetaStarWars";
-import {UsuarioClass} from "../../Clases/UsuarioClass";
+import {PlanetaStarWars} from '../../Interfaces/PlanetaStarWars';
+import {UsuarioClass} from '../../Clases/UsuarioClass';
 
 @Component({
   selector: 'app-inicio',
@@ -53,20 +53,23 @@ export class InicioComponent implements OnInit {
     }];
 
   constructor(private _http: Http) {
-    //Inicia la clase
-    //PERO EL COMPONENTE NO ESTA LISTO!!!
+    // Inicia la clase
+    // PERO EL COMPONENTE NO ESTA LISTO!!!
   }
 
   ngOnInit() {
-    //Esta listo el componente
+    // Esta listo el componente
     console.log('Nuevo usuario: ', this.nuevoUsuario);
     this._http
-      .get("http://localhost:1337/Usuario")
+      .get('http://localhost:1337/Usuario')
       .subscribe(
         (reponse) => {
-          let repuesta = reponse.json();
-          this.usuarios = repuesta;
-          console.log("Usuarios: ", this.usuarios);
+          const repuesta = reponse.json();
+          this.usuarios = repuesta.map((usuario: UsuarioClass) => {
+              usuario.editar = false;
+            return usuario;
+          });
+          console.log('Usuarios: ', this.usuarios);
         },
         (error) => {
           console.log('Error: ', error);
@@ -100,7 +103,7 @@ export class InicioComponent implements OnInit {
         (reponse) => {
           console.log('Response: ', reponse);
           console.log(reponse.json());
-          let repuesta = reponse.json();
+          const repuesta = reponse.json();
           console.log(repuesta.next);
           this.planetas = repuesta.results;
           this.planetas = this.planetas.map((planeta) => {
@@ -148,6 +151,31 @@ export class InicioComponent implements OnInit {
         },
         (error) => {
           console.log('Error: ', error);
+        },
+        () => {
+          console.log('Finally');
+        }
+      );
+  }
+
+  actualizarUsuario(usuario: UsuarioClass) {
+    const actualizacion = {
+      nombre: usuario.nombre
+    };
+    const indice: number = this.usuarios.indexOf(usuario);
+    this._http
+      .put('http://localhost:1337/Usuario/' + usuario.id, actualizacion)
+      .map((res) => {
+        return res.json();
+      }) // snippet -> template de codigo para poder reutilizarlo
+      .subscribe(
+        (res) => {
+          // El servidor nos dice que se actualizo
+          console.log('El usuario se actualizo', res);
+        },
+        (err) => {
+          // Hubo algun problema
+          console.log('Hubo un error: ', err);
         },
         () => {
           console.log('Finally');

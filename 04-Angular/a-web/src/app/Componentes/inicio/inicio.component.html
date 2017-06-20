@@ -7,11 +7,9 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
-        <pre>{{nuevoUsuario | json}}</pre>
         <label class="col-form-label">Nombre Usuario</label>
         <input class="form-control" placeholder = "Ingrese nuevo nombre" [(ngModel)] = "nuevoUsuario.nombre" type="text">
       </div>
-
       <button class="btn btn-success" (click)="crearUsuario()">Crear Usuario</button>
     </div>
   </div>
@@ -19,13 +17,25 @@
   <h3>Usuarios:</h3>
 
   <div class="row">
-    <div class="col-sm-3" *ngFor="let usuario of usuarios">
-      <h3>{{usuario.nombre}}</h3>
-      <button class="btn btn-danger" (click)="eliminarUsuario(usuario)">Eliminar Usuario</button>
+    <div class="col-sm-6" *ngFor="let usuario of usuarios">
+      <div *ngIf="!usuario.editar">
+        <h3>{{usuario.nombre}}</h3>
+        <button class="btn btn-warning" (click)="usuario.editar = !usuario.editar">Editar Usuario</button>
+      </div>
+      <div *ngIf="usuario.editar">
+        <h4>Actualizar</h4>
+        <div class="form-group">
+          <label class="col-form-label">Nombre Usuario</label>
+          <input class="form-control" placeholder = "Ingrese nuevo nombre" [(ngModel)] = "usuario.nombre" type="text">
+        </div>
+        <button class="btn btn-primary" (click)="actualizarUsuario(usuario)">Actualizar Usuario</button>
+        <button class="btn btn-danger" (click)="eliminarUsuario(usuario)">Eliminar Usuario</button>
+        <button class="btn btn-secondary" (click)="usuario.editar = !usuario.editar">Cancelar</button>
+      </div>
     </div>
   </div>
 
-  <h2>Planetas</h2>
+  <!--<h2>Planetas</h2>
 
   <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
   <br><br>
@@ -35,7 +45,7 @@
       <app-planeta-star-wars [planeta]="planeta"></app-planeta-star-wars>
     </div>
   </div>
-  <!--<div class="row">
+  <div class="row">
   <!--<h2>Usuarios conectados</h2>
 
   <div class="row">
