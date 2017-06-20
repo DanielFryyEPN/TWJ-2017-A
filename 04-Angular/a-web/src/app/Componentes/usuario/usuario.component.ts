@@ -16,39 +16,16 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.usuarioLocal);
-    this._http
-      .get('http://localhost:1337/Usuario')
-      .subscribe(
-        (reponse) => {
-          const repuesta = reponse.json();
-          this.usuarioLocal = repuesta.map((usuario: UsuarioClass) => {
-            usuario.editar = false;
-            return usuario;
-          });
-          console.log('Usuarios: ', this.usuarioLocal);
-        },
-        (error) => {
-          console.log('Error: ', error);
-        },
-        () => {
-          console.log('Finally');
-        }
-      );
   }
 
   eliminarUsuario(usuario: UsuarioClass) {
-    const indice: number = this.usuarioLocal.indexOf(usuario);
-    this._http
-      .delete('http://localhost:1337/Usuario?id=' + usuario.id)
+    this._http.delete('http://localhost:1337/Usuario/' + usuario.id)
       .subscribe(
-        (response) => {
-          this.usuarios.splice(indice, 1);
+        (res) => {
+          this.usuarioBorrado.emit(usuario);
         },
-        (error) => {
-          console.log('Error: ', error);
-        },
-        () => {
-          console.log('Finally');
+        (err) => {
+          console.log('Error', err);
         }
       );
   }
