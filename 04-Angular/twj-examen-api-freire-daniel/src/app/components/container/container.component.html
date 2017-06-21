@@ -2,5 +2,21 @@
   <div style="background-color: rgba(7,18,255,0.59)" class="row table-bordered justify-content-center">
     <h1>Astronomy Picture of the Day</h1>
   </div>
-
+  <div class="row">
+    <div style="background-color: rgba(33,28,255,0.29)" class="col-sm-4 table-bordered">
+      <div class="form-group">
+        <label class="col-form-label">Fecha</label>
+        <input class="form-control" placeholder = "Ingrese nueva fecha" [(ngModel)] = "newPicture.date" type="text">
+        <pre>{{checkboxFlag | json}}</pre>
+        <label>HD</label>
+        <input [(ngModel)] = "checkboxFlag" type="checkbox">
+      </div>
+      <button class="btn btn-success" (click)="consultarImagen(newPicture)">Obtener Imagen</button>
+      <p>La fecha minima es: 1995-06-16</p>
+      <p>La fecha maxima es la actual</p>
+    </div>
+    <div class="col-sm-8">
+      <app-astronomy-picture-of-the-day [newPicture] = "newPicture"></app-astronomy-picture-of-the-day>
+    </div>
+  </div>
 </div>
