@@ -130,6 +130,7 @@ export class InicioComponent implements OnInit {
       .subscribe(
         (response) => {
           this.usuarios.push(response.json());
+          this.nuevoUsuario = new UsuarioClass();
           console.log('Respuesta json: ', response.json());
         },
         (error) => {
@@ -139,6 +140,11 @@ export class InicioComponent implements OnInit {
           console.log('Finally');
         }
       );
+  }
+
+  eliminarUsuario(usuario: UsuarioClass) {
+    const indice = this.usuarios.indexOf(usuario);
+    this.usuarios.splice(indice, 1);
   }
 }
 /*

@@ -18,7 +18,7 @@ export class UsuarioComponent implements OnInit {
     console.log(this.usuarioLocal);
   }
 
-  eliminarUsuario(usuario: UsuarioClass) {
+  eliminarUsuario(usuario: UsuarioClass, indice: number) {
     this._http.delete('http://localhost:1337/Usuario/' + usuario.id)
       .subscribe(
         (res) => {

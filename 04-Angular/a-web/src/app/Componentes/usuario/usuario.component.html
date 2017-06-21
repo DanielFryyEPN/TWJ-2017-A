@@ -1,3 +1,15 @@
-<div class="container">
-  <h3>{{usuarioLocal.id}} {{usuarioLocal.nombre}}</h3>
+<h3>{{usuarioLocal.id}} {{usuarioLocal.nombre}}</h3>
+<div class="animated rollIn" *ngIf="!usuario.editar">
+  <h3>{{usuarioLocal.nombre}}</h3>
+  <button class="btn btn-warning" (click)="usuarioLocal.editar = !usuarioLocal.editar">Editar Usuario</button>
+</div>
+<div class="animated bounceIn" *ngIf="usuario.editar">
+  <h4>Actualizar</h4>
+  <div class="form-group">
+    <label class="col-form-label">Nombre Usuario</label>
+    <input class="form-control" placeholder = "Ingrese nuevo nombre" #usuarioLocalNombre type="text">
+  </div>
+  <button class="btn btn-primary" (click)="actualizarUsuario(usuarioLocal, usuarioLocalNombre.value)">Actualizar Usuario</button>
+  <button class="btn btn-danger" (click)="eliminarUsuario(usuarioLocal, indice)">Eliminar Usuario</button>
+  <button class="btn btn-secondary" (click)="usuarioLocal.editar = !usuarioLocal.editar">Cancelar</button>
 </div>
