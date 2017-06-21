@@ -8,16 +8,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class Pagina21Component implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
     // Parametros ruta actual
-    this.route.params.subscribe(params => {
+    this._route.params.subscribe(params => {
       console.log('Parametros pag21', params);
     });
     // Parametros de la ruta papa
-    this.route.parent.params.subscribe(params => {
+    this._route.parent.params.subscribe(params => {
       console.log('Parametros papa', params);
     });
+  }
+
+  navegarAInicio() {
+    this._router.navigate(['page2', 2, 'page3', 3, 'page22', 22]);
   }
 }

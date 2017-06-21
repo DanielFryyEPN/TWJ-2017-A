@@ -11,10 +11,10 @@ export class Pagina2Component implements OnInit {
   parentRouteId: number;
   private sub: any;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this._route.params.subscribe(params => {
       console.log('Parametros', params);
     });
   }
