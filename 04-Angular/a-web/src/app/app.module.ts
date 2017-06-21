@@ -15,6 +15,9 @@ import { GravityComponent } from './Componentes/gravity/gravity.component';
 import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 import { Pagina2Component } from './Componentes/pagina2/pagina2.component';
 import {ModuloRutas} from "./routes";
+import { Pagina21Component } from './Componentes/pagina21/pagina21.component';
+import { Pagina22Component } from './Componentes/pagina22/pagina22.component';
+import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import {ModuloRutas} from "./routes";
     ClimateComponent,
     GravityComponent,
     UsuarioComponent,
-    Pagina2Component
+    Pagina2Component,
+    Pagina21Component,
+    Pagina22Component,
+    Pagina23Component
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,14 @@
-<p>
-  pagina2 works!
-</p>
+<h3>Pagina 2 Header</h3>
+<div class="row">
+  <div class="col-sm-6">
+    <ul>
+      <li><a [routerLink] ="['page21', 2]">Pagina21</a></li>
+      <li><a [routerLink] ="['page22', 'Daniel']">Pagina22</a></li>
+      <li><a [routerLink] ="['page23', 2313]">Pagina23</a></li>
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<h3>Pagina2 Footer</h3>

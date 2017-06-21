@@ -1,4 +1,13 @@
-<h3>App component</h3>
+<h1>App component</h1>
+<h3>Header</h3>
+<ul>
+  <li><a [routerLink] ="['index']">Inicio</a></li>
+  <li><a [routerLink] ="['page2', 66, 'page3', 1283]">Pagina2</a></li>
+</ul>
+
+<router-outlet></router-outlet>
+
+<h3>Footer</h3>
 <!--<h1>
   Mi primer aplicacion en Angular
 </h1>
