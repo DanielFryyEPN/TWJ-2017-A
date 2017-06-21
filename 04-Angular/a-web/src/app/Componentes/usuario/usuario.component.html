@@ -10,6 +10,6 @@
     <input class="form-control" placeholder = "Ingrese nuevo nombre" #usuarioLocalNombre type="text">
   </div>
   <button class="btn btn-primary" (click)="actualizarUsuario(usuarioLocal, usuarioLocalNombre.value)">Actualizar Usuario</button>
-  <button class="btn btn-danger" (click)="eliminarUsuario(usuarioLocal, indice)">Eliminar Usuario</button>
+  <button class="btn btn-danger" (click)="eliminarUsuarioBackEnd(usuarioLocal, indice)">Eliminar Usuario</button>
   <button class="btn btn-secondary" (click)="usuarioLocal.editar = !usuarioLocal.editar">Cancelar</button>
 </div>

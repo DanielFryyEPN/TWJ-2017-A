@@ -142,7 +142,7 @@ export class InicioComponent implements OnInit {
       );
   }
 
-  eliminarUsuario(usuario: UsuarioClass) {
+  eliminarUsuarioFrontEnd(usuario: UsuarioClass) {
     const indice = this.usuarios.indexOf(usuario);
     this.usuarios.splice(indice, 1);
   }
