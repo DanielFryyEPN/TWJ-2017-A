@@ -1,9 +1,9 @@
 <h3>{{usuarioLocal.id}} {{usuarioLocal.nombre}}</h3>
-<div class="animated rollIn" *ngIf="!usuario.editar">
+<div class="animated rollIn" *ngIf="!usuarioLocal.editar">
   <h3>{{usuarioLocal.nombre}}</h3>
   <button class="btn btn-warning" (click)="usuarioLocal.editar = !usuarioLocal.editar">Editar Usuario</button>
 </div>
-<div class="animated bounceIn" *ngIf="usuario.editar">
+<div class="animated bounceIn" *ngIf="usuarioLocal.editar">
   <h4>Actualizar</h4>
   <div class="form-group">
     <label class="col-form-label">Nombre Usuario</label>
