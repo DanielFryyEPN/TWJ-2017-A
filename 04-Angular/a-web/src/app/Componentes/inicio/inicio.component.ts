@@ -120,12 +120,14 @@ export class InicioComponent implements OnInit {
       );
   }
 
-  crearUsuario() {
+  crearUsuario(UsuarioFormulario) {
     console.log('entro a crear usuario');
+    console.log(this.nuevoUsuario);
+    console.log(UsuarioFormulario);
     /*let usuario = {
       nombre: this.nuevoUsuario.nombre
     };*/
-    this._http
+    /*this._http
       .post('http://localhost:1337/Usuario', this.nuevoUsuario)
       .subscribe(
         (response) => {
@@ -139,7 +141,7 @@ export class InicioComponent implements OnInit {
         () => {
           console.log('Finally');
         }
-      );
+      );*/
   }
 
   eliminarUsuarioFrontEnd(usuario: UsuarioClass) {
