@@ -11,16 +11,15 @@
           <label class="col-form-label">Nombre Usuario</label>
           <input class="form-control" required minlength="3" maxlength="15" placeholder = "Ingrese nuevo nombre" [(ngModel)] = "nuevoUsuario.nombre" type="email" pattern="([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})" name="nombre" #nombre="ngModel" #nombreTAG>
 
-          <div class="alert alert-warning animated bounceIn" role="alert" *ngIf="nombre.errors?.minlength&&nombre.touched">
-            <strong>Warning!</strong> Debes de llenar el campo con al menos 3 caracteres hasta 15.
-          </div>
-
-          <div class="alert alert-danger animated bounceIn" role="alert" *ngIf="nombre.errors?.required&&nombre.touched">
-            <strong>Warning!</strong> Este campo es requerido.
-          </div>
-
-          <div class="alert alert-warning animated bounceIn" role="alert" *ngIf="nombre.errors?.pattern">
-            <strong>Warning!</strong> Correo incorrecto.
+          <div class="alert alert-warning animated bounceIn" role="alert">
+            <strong>
+              <span *ngIf="nombre.errors?.minlength&&nombre.touched">Warning!</span>
+              <span *ngIf="nombre.errors?.required&&nombre.touched">Warning!</span>
+              <span *ngIf="nombre.errors?.pattern">Warning!</span>
+            </strong>
+            <span *ngIf="nombre.errors?.minlength&&nombre.touched">Debes de llenar el campo con al menos 3 caracteres hasta 15.</span>
+            <span *ngIf="nombre.errors?.required&&nombre.touched">Este campo es requerido.</span>
+            <span *ngIf="nombre.errors?.pattern">Correo incorrecto.</span>
           </div>
 
           <pre>Errores: {{nombre.errors | json}}
@@ -175,4 +174,3 @@
     </div>
   </div>-->
 </div>
-
