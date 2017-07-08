@@ -11,12 +11,15 @@ module.exports = {
     nombre: {
       type:'string'
     },
-    duenosMascotas: {
-      collection: 'UsuarioMascota',
-      via: 'idUsuario'
+    password: {
+      type: 'string'
     },
     correo: {
       type: 'email'
+    },
+    duenosMascotas: {
+      collection: 'UsuarioMascota',
+      via: 'idUsuario'
     }
   }
 };
