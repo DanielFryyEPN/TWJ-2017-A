@@ -12,7 +12,7 @@
 var Passwords = require('machinepack-passwords');
 
 module.exports.bootstrap = function(cb) {
-  Usuario.findOne({
+  /*Usuario.findOne({
     correo: 'marcelo@marcelo.com'
   }).exec(function (err, usuarioEncontrado) {
     if (err) cb('error');
@@ -51,8 +51,8 @@ module.exports.bootstrap = function(cb) {
         cb();
       }
     }
-  });
+  });*/
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  // cb();
+  cb();
 };

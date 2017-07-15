@@ -6,6 +6,7 @@
  */
 
 var Passwords = require('machinepack-passwords');
+var jwt = require('jsonwebtoken');
 
 module.exports = {
 	logIn: function (req, res) {
@@ -26,7 +27,19 @@ module.exports = {
               return res.badRequest('Datos invalidos');
             },
             success: function () {
-              return res.ok('Estas logueado');
+              // devolver la credencial
+              var token = jwt.sign(
+                {
+                  exp: Math.floor(Date.now() / 1000) + (60 * 60),
+                  data: {
+                    id: usuarioEncontrado.id,
+                    nombre: usuarioEncontrado.nombre,
+                    correo: usuarioEncontrado.correo
+                  }
+                },
+                'leninAmaACorrea'
+              );
+              return res.ok(token);
             }
           });
         }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TokenService} from './token.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent {
   parrafo:string = "Hola";
   background:string = "blue";
 
-  constructor() {
+  constructor(private _TokenService: TokenService) {
+    this._TokenService.token = 'Mi mama me mima';
     this.usuario.nombre = "Daniel";
     console.log("constructor");
     this.holaMundo();
