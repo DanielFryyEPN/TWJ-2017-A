@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <form (ngSubmit) = login(datos) #datos = "ngForm" novalidate>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group row">
+          <label for="correo" class="col-2 col-form-label">Correo</label>
+          <div class="col-10">
+            <input class="form-control" type="email" id="correo" placeholder="Ingrese su correo" name="correoV" ngModel>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password" class="col-2 col-form-label">Password</label>
+          <div class="col-10">
+            <input class="form-control" type="password" id="password" placeholder="Ingrese su password" name="passwordV" ngModel>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Login</button>
+      </div>
+    </div>
+  </form>
+</div>
