@@ -2,6 +2,12 @@
  * Created by USRDEL on 7/6/17.
  */
 export class UsuarioClass {
-  constructor(public nombre?: string, public correo?: string, public id?: number, public createdAt?: Date, public updatedAt?: Date, public editar?: boolean) {
+  constructor(public nombre?: string,
+              public password?: string,
+              public correo?: string,
+              public id?: number,
+              public createdAt?: Date,
+              public updatedAt?: Date,
+              public editar?: boolean) {
   }
 }

@@ -22,6 +22,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './Componentes/login/login.component';
 import { TokenService } from './token.service';
 import { UsuarioService } from './Componentes/services/usuario.service';
+import { UrlService } from './Componentes/services/url.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { UsuarioService } from './Componentes/services/usuario.service';
   providers: [
     //http
     TokenService,
-    UsuarioService
+    UsuarioService,
+    UrlService
   ],
   bootstrap: [AppComponent]
 })
