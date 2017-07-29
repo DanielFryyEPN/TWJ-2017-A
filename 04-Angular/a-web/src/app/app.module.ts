@@ -20,7 +20,8 @@ import { Pagina22Component } from './Componentes/pagina22/pagina22.component';
 import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './Componentes/login/login.component';
-import {TokenService} from "./token.service";
+import { TokenService } from './token.service';
+import { UsuarioService } from './Componentes/services/usuario.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {TokenService} from "./token.service";
   ],
   providers: [
     //http
-    TokenService
+    TokenService,
+    UsuarioService
   ],
   bootstrap: [AppComponent]
 })
