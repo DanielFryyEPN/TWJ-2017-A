@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenService } from '../../token.service';
 import { NgForm } from '@angular/forms';
 import { Http } from '@angular/http';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +11,19 @@ import { Http } from '@angular/http';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _TokenService: TokenService, private _http: Http) { }
+  correo: string;
+  password: string;
+  constructor(private _TokenService: TokenService, private _http: Http, private _authService: AuthService) { }
 
   ngOnInit() {
   }
 
   login(datos: NgForm) {
-    const correo = datos.value.correoV;
-    const pass = datos.value.passwordV;
-    console.log(correo);
-    console.log(pass);
+    this._authService.hacerLogin(this.correo, this.password);
+    console.log(this.correo);
+    console.log(this.password);
     this._http
-      .get('http://localhost:1337/Auth/logIn?correo=' + correo + '&password=' + pass)
+      .get('http://localhost:1337/Auth/logIn?correo=' + this.correo + '&password=' + this.password)
       .subscribe(
         (res) => {
           this._TokenService.token = res.text();
@@ -34,5 +36,13 @@ export class LoginComponent implements OnInit {
           console.log('Finally');
         }
       );
+  }
+
+  loguearse() {
+    this._authService.hacerLogin(this.correo, this.password);
+  }
+
+  desloguearse() {
+    this._authService.hacerLogout();
   }
 }

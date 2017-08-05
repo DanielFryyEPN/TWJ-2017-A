@@ -23,6 +23,9 @@ import { LoginComponent } from './Componentes/login/login.component';
 import { TokenService } from './token.service';
 import { UsuarioService } from './Componentes/services/usuario.service';
 import { UrlService } from './Componentes/services/url.service';
+import { AuthService } from './Componentes/services/auth.service';
+import { EstaLogueadoService } from './Componentes/services/esta-logueado.service';
+import { ApiAuthService } from './Componentes/services/api-auth.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { UrlService } from './Componentes/services/url.service';
     //http
     TokenService,
     UsuarioService,
-    UrlService
+    UrlService,
+    AuthService,
+    EstaLogueadoService,
+    ApiAuthService
   ],
   bootstrap: [AppComponent]
 })
